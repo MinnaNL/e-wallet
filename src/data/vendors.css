@@ -1,19 +1,19 @@
-.piggy{
-color: #000042;
-background: #f0b1d8;
+.piggy {
+  color: #000042;
+  background: #f0b1d8;
 }
 
-.cloud{
-    color: #25212d;
-    background: linear-gradient(to right,  #ADD8E6, #baa3e4, #ffcff3);
+.cloud {
+  color: #25212d;
+  background: linear-gradient(to right, #ADD8E6, #baa3e4, #ffcff3);
 }
 
-.berry{
-    color:#C0C0C0;
-    background: #750239;
+.berry {
+  color: #C0C0C0;
+  background: #750239;
 }
 
-.zesty{
-    background: linear-gradient(to bottom left, #232425, #1a1a1a); /* Diagonal gradient from lighter dark grey to almost black dark grey */
-    color: #DFFF00;
+.zesty {
+  background: linear-gradient(to bottom left, #232425, #1a1a1a);
+  color: #DFFF00;
 }

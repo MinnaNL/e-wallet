@@ -7,8 +7,8 @@ interface CardProps {
   vendor: string
   cardNumber: string
   cardHolder: string
-  expiryMonth: number
-  expiryYear: number
+  expiryMonth: string
+  expiryYear: string
   onDelete: () => void
 }
 
@@ -30,7 +30,7 @@ const Card: FC<CardProps> = ({
         color: selectedVendor.theme.textColor,
       }}
     >
-      <div className={styles.header}>
+      <div className={styles.cardHeader}>
         <h2>{selectedVendor.name}</h2>
         <FontAwesomeIcon icon={selectedVendor.icon} className={styles.logo} />
       </div>

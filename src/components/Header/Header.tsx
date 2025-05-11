@@ -1,18 +1,14 @@
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faCreditCard } from '@fortawesome/free-solid-svg-icons'
 import styles from './Header.module.css'
 
 const Header = () => {
   return (
     <header className={styles.header}>
       <Link to="/" className={styles.logo} aria-label="Go to Home Page">
-        <img
-          src="/src/assets/icons/favicon.png"
-          alt="App Logo"
-          className={styles.favicon}
-        />{' '}
-        Wallet
+        <FontAwesomeIcon icon={faCreditCard} className={styles.favicon} />
+        <span className={styles.logoText}>Wallet</span>
       </Link>
 
       <nav className={styles.nav}>
@@ -24,9 +20,9 @@ const Header = () => {
         </Link>
       </nav>
 
-      <button className={styles.userButton} aria-label="User Profile">
+      <nav className={styles.userNav} aria-label="User Profile">
         <FontAwesomeIcon icon={faUser} />
-      </button>
+      </nav>
     </header>
   )
 }

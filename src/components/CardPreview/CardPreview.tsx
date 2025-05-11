@@ -12,8 +12,8 @@ const CardPreview = ({
   vendor: string
   cardNumber: string
   cardHolder: string
-  expiryMonth: number
-  expiryYear: number
+  expiryMonth: string
+  expiryYear: string
 }) => {
   const selectedVendor = vendors[vendor] || vendors.cloudCard
 
@@ -25,7 +25,7 @@ const CardPreview = ({
         color: selectedVendor.theme.textColor,
       }}
     >
-      <div className={styles.header}>
+      <div className={styles.cardPreviewHeader}>
         <h2>{selectedVendor.name}</h2>
         <FontAwesomeIcon icon={selectedVendor.icon} className={styles.logo} />
       </div>

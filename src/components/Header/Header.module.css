@@ -2,49 +2,75 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #f8f9fa;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  background-color: var(--background-color);
+  top: 0;
+  z-index: 10;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px; /* Add spacing between the favicon and text */
+  gap: 8px;
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
-  color: #333;
+  text-transform: uppercase;
+  color: var(--button-bg-color);
+  margin-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--button-hover-bg-color);
 }
 
 .favicon {
-  width: 24px;
-  height: 24px;
+  font-size: 1.5rem;
+  color: var(--button-bg-color);
+  transition: color 0.3s ease;
+}
+
+.favicon:hover {
+  color: var(--button-hover-bg-color);
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--button-bg-color);
+  transition: color 0.3s ease;
+}
+
+.logoText:hover {
+  color: var(--button-hover-bg-color);
 }
 
 .nav {
   display: flex;
-  gap: 15px;
+  gap: 20px;
+  margin-left: 20px;
 }
 
 .nav a {
   text-decoration: none;
-  color: #333;
+  color: var(--text-color);
   font-size: 1rem;
+  text-transform: uppercase;
 }
 
 .nav a:hover {
   text-decoration: underline;
 }
 
-.userButton {
-  background: none;
-  border: none;
+.userNav {
   cursor: pointer;
   font-size: 1.2rem;
-  color: #333;
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
-.userButton:hover {
-  color: #007bff;
+.userNav:hover {
+  color: var(--button-hover-bg-color);
 }

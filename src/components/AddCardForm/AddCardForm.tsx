@@ -14,8 +14,8 @@ const AddCardForm: React.FC<AddCardFormProps> = ({ handleAddCard }) => {
     vendor: 'cloudCard',
     cardNumber: '',
     cardHolder: '',
-    expiryMonth: 0,
-    expiryYear: 0,
+    expiryMonth: '',
+    expiryYear: '',
     ccv: 0,
   })
   const [error, setError] = useState<string>('')
@@ -42,10 +42,11 @@ const AddCardForm: React.FC<AddCardFormProps> = ({ handleAddCard }) => {
         .join(' ')
       setFormData({ ...formData, cardHolder: formattedName })
     } else if (name === 'expiryMonth' || name === 'expiryYear') {
-      if (value.length <= 2) {
+      const numericValue = value.replace(/\D/g, '')
+      if (numericValue.length <= 2) {
         setFormData({
           ...formData,
-          [name]: value === '' ? 0 : parseInt(value, 10),
+          [name]: numericValue,
         })
       }
     } else if (name === 'ccv') {
@@ -117,19 +118,19 @@ const AddCardForm: React.FC<AddCardFormProps> = ({ handleAddCard }) => {
         />
         <label>Expiration Date</label>
         <input
-          type="number"
+          type="text"
           name="expiryMonth"
           placeholder="MM"
-          value={formData.expiryMonth || ''}
+          value={formData.expiryMonth}
           onChange={handleChange}
           required
           disabled={isSubmitted}
         />
         <input
-          type="number"
+          type="text"
           name="expiryYear"
           placeholder="YY"
-          value={formData.expiryYear || ''}
+          value={formData.expiryYear}
           onChange={handleChange}
           required
           disabled={isSubmitted}
@@ -146,7 +147,6 @@ const AddCardForm: React.FC<AddCardFormProps> = ({ handleAddCard }) => {
           disabled={isSubmitted}
         />
         <button type="submit" disabled={isSubmitted}>
-          {' '}
           Add Card
         </button>
       </form>

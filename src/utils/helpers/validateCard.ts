@@ -10,19 +10,21 @@ const validateCard = (cardData: CardFormData): string | null => {
   if (!cardData.cardNumber || cardData.cardNumber.toString().replace(/\s/g, '').length !== 16) {
     return 'Card number must be 16 digits'
   }
-if (!/^\d+$/.test(cardData.cardNumber.toString().replace(/\s/g, ''))) {
+  if (!/^\d+$/.test(cardData.cardNumber.toString().replace(/\s/g, ''))) {
     return 'Card number cannot contain letters'
   }
   if (!cardData.cardHolder || /\d/.test(cardData.cardHolder)) {
     return 'Card Holder cannot contain numbers'
   }
-  if (!cardData.expiryMonth || cardData.expiryMonth < 1 || cardData.expiryMonth > 12) {
-    return 'Please enter a valid expiry month (1–12).'
+  const expiryMonth = parseInt(cardData.expiryMonth, 10) 
+  if (!expiryMonth || expiryMonth < 1 || expiryMonth > 12) {
+    return 'Please enter a valid expiry month (01–12).'
   }
+  const expiryYear = parseInt(cardData.expiryYear, 10)
   if (
-    !cardData.expiryYear ||
-    cardData.expiryYear < currentYear ||
-    (cardData.expiryYear === currentYear && cardData.expiryMonth < currentMonth)
+    !expiryYear ||
+    expiryYear < currentYear ||
+    (expiryYear === currentYear && expiryMonth < currentMonth)
   ) {
     return 'The expiry date can’t be in the past.'
   }
