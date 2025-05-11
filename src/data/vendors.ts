@@ -18,32 +18,32 @@ const vendors: Record<string, Vendor> = {
     name: 'CloudCard',
     icon: faCloud,
     theme: {
-      background: 'linear-gradient(to bottom, #ADD8E6,rgb(194, 176, 228), #ffcff3)',
-      textColor: ' #25212d',
+      background: 'linear-gradient(to right, #8bcadf, #a586df, #e699de)',
+      textColor: '#000000',
     },
   },
   piggyBank: {
     name: 'PiggyBank',
     icon: faPiggyBank,
     theme: {
-      background: ' #f0b1d8',
-      textColor: ' #000042',
+      background: '#ffb1e1',
+      textColor: '#01014b',
     },
   },
   berryBank: {
     name: 'Berry Bank',
     icon: faRaspberryPi,
     theme: {
-      background: 'linear-gradient(to bottom right, #750239,rgb(106, 8, 55)',
-      textColor: 'rgb(205, 203, 203)',
+      background: '#750239',
+      textColor: '#efefef',
     },
   },
   zestyInvesty: {
     name: 'Zesty Investy',
     icon: faLemon,
     theme: {
-      background: 'linear-gradient(to bottom left, #232425, #1a1a1a)',
-      textColor: ' #DFFF00',
+      background: 'linear-gradient(to bottom left, #1a1a3a, #0f0f1f)',
+      textColor: '#DFFF00',
     },
   },
 }

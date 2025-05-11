@@ -1,19 +1,19 @@
 .piggy {
-  color: #000042;
-  background: #f0b1d8;
+  color: #01014b;
+  background: #ffb1e1;
 }
 
 .cloud {
-  color: #25212d;
-  background: linear-gradient(to right, #ADD8E6, #baa3e4, #ffcff3);
+  color: #000000;
+  background: linear-gradient(to right, #8bcadf, #a586df, #e699de);
 }
 
 .berry {
-  color: #C0C0C0;
+  color: #efefef;
   background: #750239;
 }
 
 .zesty {
-  background: linear-gradient(to bottom left, #232425, #1a1a1a);
+  background: linear-gradient(to bottom left, #1a1a3a, #0f0f1f); /* Darker blue/violet gradient */
   color: #DFFF00;
 }

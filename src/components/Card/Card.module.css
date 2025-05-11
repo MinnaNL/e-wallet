@@ -1,19 +1,51 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
 .card {
+  position: relative;
   width: 320px;
   height: 180px;
   border-radius: 12px;
   padding: 20px;
-  color: white;
+  color: #f0e6ff;
+  background-color: #1e1e2e;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
-  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
   font-family: 'Quantico', sans-serif;
+  z-index: 1;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(to bottom, #b0b0b0, #6e6e6e);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
 }
 
 .card:hover {
   transform: scale(1.05);
+  background-color: #2a2a3e;
+}
+
+.card:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
 }
 
 .cardHeader {
@@ -56,5 +88,38 @@
 
 .expiryDate {
   text-align: left;
+}
+
+.deleteButton {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.deleteButton:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+.tooltip {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  white-space: nowrap;
+  z-index: 2;
 }
 

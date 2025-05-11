@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import vendors from '../../data/vendors'
 import styles from './CardPreview.module.css'
+import '../../data/vendors.css'
 
 const CardPreview = ({
   vendor,

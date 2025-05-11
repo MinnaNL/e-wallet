@@ -4,6 +4,7 @@ import vendors from '../../data/vendors'
 import CardPreview from '../CardPreview/CardPreview'
 import validateCard from '../../utils/helpers/validateCard'
 import styles from './AddCardForm.module.css'
+import '../../data/vendors.css'
 
 interface AddCardFormProps {
   handleAddCard: (formData: CardFormData) => void

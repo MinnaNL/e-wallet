@@ -1,14 +1,34 @@
 .previewCard {
+  position: relative;
   width: 320px;
   height: 180px;
   border-radius: 12px;
   padding: 20px;
+  color: #f0e6ff;
+  background-color: #1e1e2e;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
-  color: white;
+  overflow: hidden;
   font-family: 'Quantico', sans-serif;
+  z-index: 1;
+}
+
+.previewCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(to bottom, #b0b0b0, #6e6e6e);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
 }
 
 .cardPreviewHeader {
