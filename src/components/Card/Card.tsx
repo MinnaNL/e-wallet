@@ -45,7 +45,6 @@ const Card: FC<CardProps> = ({
             {expiryMonth}/{expiryYear}
           </div>
         </div>
-        <div className={styles.tooltip}>CCV: {ccv}</div> {/* Tooltip */}
       </div>
       <button className={styles.deleteButton} onClick={onDelete}>
         Delete

@@ -17,7 +17,7 @@ const AddCard: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1>Add a New Card</h1>
       {feedback && <p style={{ color: 'green' }}>{feedback}</p>}
       <AddCardForm handleAddCard={handleAddCard} />

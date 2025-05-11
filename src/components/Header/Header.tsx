@@ -8,7 +8,7 @@ const Header = () => {
     <header className={styles.header}>
       <Link to="/" className={styles.logo} aria-label="Go to Home Page">
         <FontAwesomeIcon icon={faCreditCard} className={styles.favicon} />
-        <span className={styles.logoText}>Wallet</span>
+        <span className={styles.logoText}>Payflow</span>
       </Link>
 
       <nav className={styles.nav}>

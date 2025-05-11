@@ -22,7 +22,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="container">
-      <h1>Your Cards</h1> {/* Ensure h1 is visible */}
+      <h1>Your Cards</h1>
       <CardList cards={cards} onDelete={handleDelete} />
       <Link to="/addcard" className="addButton">
         Add New Card

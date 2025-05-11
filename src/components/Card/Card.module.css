@@ -21,6 +21,7 @@
   z-index: 1;
 }
 
+
 .card::before {
   content: '';
   position: absolute;
@@ -41,11 +42,6 @@
 .card:hover {
   transform: scale(1.05);
   background-color: #2a2a3e;
-}
-
-.card:hover .tooltip {
-  opacity: 1;
-  visibility: visible;
 }
 
 .cardHeader {
@@ -104,22 +100,5 @@
 
 .deleteButton:hover {
   background-color: var(--button-hover-bg-color);
-}
-
-.tooltip {
-  position: absolute;
-  bottom: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #000;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  white-space: nowrap;
-  z-index: 2;
 }
 
