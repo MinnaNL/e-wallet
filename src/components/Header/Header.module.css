@@ -17,22 +17,21 @@
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
-  color: var(--button-bg-color);
   margin-right: 10px;
   transition: color 0.3s ease;
+  color: var(--button-text-color)
 }
 
 .logo:hover {
   color: var(--button-hover-bg-color);
 }
 
-.favicon {
+.logoIcon {
   font-size: 1.5rem;
-  color: var(--button-bg-color);
   transition: color 0.3s ease;
 }
 
-.favicon:hover {
+.logoIcon:hover {
   color: var(--button-hover-bg-color);
 }
 
@@ -40,13 +39,9 @@
   font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: var(--button-bg-color);
   transition: color 0.3s ease;
 }
 
-.logoText:hover {
-  color: var(--button-hover-bg-color);
-}
 
 .nav {
   display: flex;
@@ -63,6 +58,7 @@
 
 .nav a:hover {
   text-decoration: underline;
+  color: var(--button-hover-bg-color);
 }
 
 .userNav {
@@ -70,7 +66,7 @@
   font-size: 1.2rem;
   color: var(--text-color);
   transition: color 0.3s ease;
-  padding-left: 10px; /* Added padding to the left */
+  padding-left: 12px;
 }
 
 .userNav:hover {

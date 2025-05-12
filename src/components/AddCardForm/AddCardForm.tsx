@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent } from 'react'
+import { useState, ChangeEvent, FormEvent, useEffect } from 'react'
 import { CardFormData } from '../../types/CardFormData'
 import vendors from '../../data/vendors'
 import CardPreview from '../CardPreview/CardPreview'
@@ -21,10 +21,16 @@ const AddCardForm: React.FC<AddCardFormProps> = ({
     cardHolder: '',
     expiryMonth: '',
     expiryYear: '',
-    ccv: '', // Updated to string
+    ccv: '',
   })
   const [error, setError] = useState<string>('')
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (isSubmitted) {
+      setError('')
+    }
+  }, [isSubmitted])
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -86,7 +92,7 @@ const AddCardForm: React.FC<AddCardFormProps> = ({
       <CardPreview {...formData} />
 
       <form onSubmit={handleSubmit} className={styles.form}>
-        {error && <p className="formError">{error}</p>}
+        {error && !isSubmitted && <p className="formError">{error}</p>}
         <label>Vendor</label>
         <select
           name="vendor"
@@ -122,24 +128,26 @@ const AddCardForm: React.FC<AddCardFormProps> = ({
           disabled={isDisabled || isSubmitted}
         />
         <label>Expiration Date</label>
-        <input
-          type="text"
-          name="expiryMonth"
-          placeholder="MM"
-          value={formData.expiryMonth}
-          onChange={handleChange}
-          required
-          disabled={isDisabled || isSubmitted}
-        />
-        <input
-          type="text"
-          name="expiryYear"
-          placeholder="YY"
-          value={formData.expiryYear}
-          onChange={handleChange}
-          required
-          disabled={isDisabled || isSubmitted}
-        />
+        <div className={styles.expiry}>
+          <input
+            type="text"
+            name="expiryMonth"
+            placeholder="MM"
+            value={formData.expiryMonth}
+            onChange={handleChange}
+            required
+            disabled={isDisabled || isSubmitted}
+          />
+          <input
+            type="text"
+            name="expiryYear"
+            placeholder="YY"
+            value={formData.expiryYear}
+            onChange={handleChange}
+            required
+            disabled={isDisabled || isSubmitted}
+          />
+        </div>
         <label>CCV</label>
         <input
           type="text"
@@ -152,6 +160,7 @@ const AddCardForm: React.FC<AddCardFormProps> = ({
           disabled={isDisabled || isSubmitted}
         />
         <button
+          id="submitButton"
           type="submit"
           className={isDisabled || isSubmitted ? 'disabledButton' : ''}
           disabled={isDisabled || isSubmitted}

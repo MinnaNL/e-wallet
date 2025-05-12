@@ -7,16 +7,16 @@ const validateCard = (cardData: CardFormData): string | null => {
   if (!cardData.vendor) {
     return 'Please select a card vendor'
   }
-  if (!cardData.cardNumber || cardData.cardNumber.toString().replace(/\s/g, '').length !== 16) {
+  if (!cardData.cardNumber || cardData.cardNumber.replace(/\s/g, '').length !== 16) {
     return 'Card number must be 16 digits'
   }
-  if (!/^\d+$/.test(cardData.cardNumber.toString().replace(/\s/g, ''))) {
+  if (!/^\d+$/.test(cardData.cardNumber.replace(/\s/g, ''))) {
     return 'Card number cannot contain letters'
   }
   if (!cardData.cardHolder || /\d/.test(cardData.cardHolder)) {
     return 'Card Holder cannot contain numbers'
   }
-  const expiryMonth = parseInt(cardData.expiryMonth, 10) 
+  const expiryMonth = parseInt(cardData.expiryMonth, 10)
   if (!expiryMonth || expiryMonth < 1 || expiryMonth > 12) {
     return 'Please enter a valid expiry month (01–12).'
   }

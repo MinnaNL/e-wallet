@@ -8,6 +8,7 @@ const AddCard: React.FC = () => {
   const [cards, setCards] = useState<CardFormData[]>([])
   const [isMaxCards, setIsMaxCards] = useState<boolean>(false)
   const [feedback, setFeedback] = useState<string>('')
+  const [errorMessage, setErrorMessage] = useState<string>('')
 
   useEffect(() => {
     const storedCards = localStorage.getItem('cards')
@@ -24,6 +25,7 @@ const AddCard: React.FC = () => {
     const updatedCards = [...cards, newCard]
     setCards(updatedCards)
     localStorage.setItem('cards', JSON.stringify(updatedCards))
+    setErrorMessage('')
     setFeedback('Card has been added')
   }
 
@@ -31,6 +33,7 @@ const AddCard: React.FC = () => {
     <div className="container">
       <h1>Add a New Card</h1>
       {feedback && <h3 className="cardAdded">{feedback}</h3>}
+      {errorMessage && <p className="formError">{errorMessage}</p>}
       {isMaxCards ? (
         <div className="container">
           <h3 className="maxCardHeading">Unable to add another card</h3>

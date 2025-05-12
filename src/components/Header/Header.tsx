@@ -7,13 +7,13 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <Link to="/" className={styles.logo} aria-label="Go to Home Page">
-        <FontAwesomeIcon icon={faCreditCard} className={styles.favicon} />
+        <FontAwesomeIcon icon={faCreditCard} className={styles.logoIcon} />
         <span className={styles.logoText}>Payflow</span>
       </Link>
 
       <nav className={styles.nav}>
         <Link to="/" aria-label="Go to Home Page">
-          Home
+          Cards
         </Link>
         <Link to="/addcard" aria-label="Go to Add Card Page">
           Add Card
