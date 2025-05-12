@@ -6,7 +6,7 @@
 }
 
 .card {
-  position: relative;
+  position: relative; 
   width: 320px;
   height: 180px;
   border-radius: 12px;
@@ -20,7 +20,6 @@
   font-family: 'Quantico', sans-serif;
   z-index: 1;
 }
-
 
 .card::before {
   content: '';
@@ -42,6 +41,28 @@
 .card:hover {
   transform: scale(1.05);
   background-color: #2a2a3e;
+}
+
+.card:hover .ccvOverlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ccvOverlay {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff; 
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 2;
 }
 
 .cardHeader {
