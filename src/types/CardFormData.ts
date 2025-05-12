@@ -4,5 +4,5 @@ export interface CardFormData {
   cardHolder: string
   expiryMonth: string 
   expiryYear: string 
-  ccv: number
+  ccv: string 
 }

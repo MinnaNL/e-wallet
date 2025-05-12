@@ -28,7 +28,7 @@ const validateCard = (cardData: CardFormData): string | null => {
   ) {
     return 'The expiry date can’t be in the past.'
   }
-  if (!cardData.ccv || cardData.ccv.toString().length !== 3) {
+  if (!cardData.ccv || cardData.ccv.length !== 3 || !/^\d+$/.test(cardData.ccv)) {
     return 'CCV must be 3 digits'
   }
   return null

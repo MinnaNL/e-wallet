@@ -10,7 +10,7 @@ interface CardProps {
   cardHolder: string
   expiryMonth: string
   expiryYear: string
-  ccv: number
+  ccv: string
   onDelete: () => void
 }
 

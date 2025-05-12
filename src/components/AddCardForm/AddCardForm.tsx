@@ -8,7 +8,7 @@ import '../../data/vendors.css'
 
 interface AddCardFormProps {
   handleAddCard: (formData: CardFormData) => void
-  isDisabled?: boolean // Added prop to disable the form
+  isDisabled?: boolean
 }
 
 const AddCardForm: React.FC<AddCardFormProps> = ({
@@ -21,7 +21,7 @@ const AddCardForm: React.FC<AddCardFormProps> = ({
     cardHolder: '',
     expiryMonth: '',
     expiryYear: '',
-    ccv: 0,
+    ccv: '', // Updated to string
   })
   const [error, setError] = useState<string>('')
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
@@ -59,7 +59,7 @@ const AddCardForm: React.FC<AddCardFormProps> = ({
       if (numericValue.length <= 3) {
         setFormData({
           ...formData,
-          ccv: numericValue === '' ? 0 : parseInt(numericValue, 10),
+          ccv: numericValue,
         })
       }
     } else {
@@ -86,7 +86,7 @@ const AddCardForm: React.FC<AddCardFormProps> = ({
       <CardPreview {...formData} />
 
       <form onSubmit={handleSubmit} className={styles.form}>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {error && <p className="formError">{error}</p>}
         <label>Vendor</label>
         <select
           name="vendor"
@@ -146,12 +146,16 @@ const AddCardForm: React.FC<AddCardFormProps> = ({
           name="ccv"
           placeholder="CCV"
           maxLength={3}
-          value={formData.ccv || ''}
+          value={formData.ccv}
           onChange={handleChange}
           required
           disabled={isDisabled || isSubmitted}
         />
-        <button type="submit" disabled={isDisabled || isSubmitted}>
+        <button
+          type="submit"
+          className={isDisabled || isSubmitted ? 'disabledButton' : ''}
+          disabled={isDisabled || isSubmitted}
+        >
           Add Card
         </button>
       </form>
