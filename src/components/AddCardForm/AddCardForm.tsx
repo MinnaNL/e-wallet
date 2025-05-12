@@ -8,9 +8,13 @@ import '../../data/vendors.css'
 
 interface AddCardFormProps {
   handleAddCard: (formData: CardFormData) => void
+  isDisabled?: boolean // Added prop to disable the form
 }
 
-const AddCardForm: React.FC<AddCardFormProps> = ({ handleAddCard }) => {
+const AddCardForm: React.FC<AddCardFormProps> = ({
+  handleAddCard,
+  isDisabled = false,
+}) => {
   const [formData, setFormData] = useState<CardFormData>({
     vendor: 'cloudCard',
     cardNumber: '',
@@ -25,7 +29,7 @@ const AddCardForm: React.FC<AddCardFormProps> = ({ handleAddCard }) => {
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    if (isSubmitted) return
+    if (isDisabled || isSubmitted) return
 
     const { name, value } = e.target
     if (name === 'cardNumber') {
@@ -88,7 +92,7 @@ const AddCardForm: React.FC<AddCardFormProps> = ({ handleAddCard }) => {
           name="vendor"
           value={formData.vendor}
           onChange={handleChange}
-          disabled={isSubmitted}
+          disabled={isDisabled || isSubmitted}
         >
           {Object.entries(vendors).map(([key, vendor]) => (
             <option key={key} value={key}>
@@ -105,7 +109,7 @@ const AddCardForm: React.FC<AddCardFormProps> = ({ handleAddCard }) => {
           value={formData.cardNumber}
           onChange={handleChange}
           required
-          disabled={isSubmitted}
+          disabled={isDisabled || isSubmitted}
         />
         <label>CardHolder</label>
         <input
@@ -115,7 +119,7 @@ const AddCardForm: React.FC<AddCardFormProps> = ({ handleAddCard }) => {
           value={formData.cardHolder}
           onChange={handleChange}
           required
-          disabled={isSubmitted}
+          disabled={isDisabled || isSubmitted}
         />
         <label>Expiration Date</label>
         <input
@@ -125,7 +129,7 @@ const AddCardForm: React.FC<AddCardFormProps> = ({ handleAddCard }) => {
           value={formData.expiryMonth}
           onChange={handleChange}
           required
-          disabled={isSubmitted}
+          disabled={isDisabled || isSubmitted}
         />
         <input
           type="text"
@@ -134,7 +138,7 @@ const AddCardForm: React.FC<AddCardFormProps> = ({ handleAddCard }) => {
           value={formData.expiryYear}
           onChange={handleChange}
           required
-          disabled={isSubmitted}
+          disabled={isDisabled || isSubmitted}
         />
         <label>CCV</label>
         <input
@@ -145,9 +149,9 @@ const AddCardForm: React.FC<AddCardFormProps> = ({ handleAddCard }) => {
           value={formData.ccv || ''}
           onChange={handleChange}
           required
-          disabled={isSubmitted}
+          disabled={isDisabled || isSubmitted}
         />
-        <button type="submit" disabled={isSubmitted}>
+        <button type="submit" disabled={isDisabled || isSubmitted}>
           Add Card
         </button>
       </form>
